@@ -1,0 +1,11 @@
+.bash_history
+.bash_logout
+.bashrc
+.config/
+.dbshell
+.mongorc.js
+.nano
+.node_repl_history
+.npm/
+.profile
+.viminfo

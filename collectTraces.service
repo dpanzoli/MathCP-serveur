@@ -1,0 +1,11 @@
+[Unit]
+Description=collectTraces
+After=network.target
+
+[Service]
+User=pi
+ExecStart=/usr/bin/node /home/pi/collectTraces.js
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
