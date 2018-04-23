@@ -18,9 +18,13 @@ app.get('/all', function(req, res) {
 
 app.get('/add', function(req, res) {
 
-	db.insert({timestamp:new Date(), score:req.query.score}, function(err, newDoc) {
-		res.send(newDoc);
-	});
+	if (req.query.score) {
+		db.insert({timestamp:new Date(), score:req.query.score}, function(err, newDoc) {
+			res.send(newDoc);
+		});
+	} else {
+		res.send("pas de score");
+	}
 
 });
 
