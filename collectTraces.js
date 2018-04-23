@@ -18,9 +18,16 @@ app.get('/all', function(req, res) {
 
 app.get('/add', function(req, res) {
 
-	db.insert({timestamp:new Date(), score:req.query.score}, function(err, newDoc) {
-		res.send(newDoc);
-	});
+	db.insert(
+		{
+			timestamp: new Date(),
+			login: req.query.login, 
+			nombre:req.query.nombre, 
+			temps: req.query.temps
+		}, function(err, newDoc) {
+			res.send(newDoc);
+		}
+	);
 
 });
 
