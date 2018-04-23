@@ -18,16 +18,21 @@ app.get('/all', function(req, res) {
 
 app.get('/add', function(req, res) {
 
-	db.insert(
-		{
-			timestamp: new Date(),
-			login: req.query.login, 
-			nombre:req.query.nombre, 
-			temps: req.query.temps
-		}, function(err, newDoc) {
-			res.send(newDoc);
-		}
-	);
+
+	if (req.query.login && req.query.nombre) {
+		db.insert(
+			{
+				timestamp: new Date(),
+				login: req.query.login, 
+				nombre:req.query.nombre, 
+				temps: req.query.temps
+			}, function(err, newDoc) {
+				res.send(newDoc);
+			}
+		);
+	} else {
+		res.send({error:1, message:"pas de score"});
+	}
 
 });
 
